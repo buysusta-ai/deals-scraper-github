@@ -1,0 +1,59 @@
+name: Deals Scraper
+
+on:
+  schedule:
+    # IST Times (converted to UTC)
+    # 07:30, 09:30, 15:30, 17:30, 19:30 IST
+    - cron: "0 2,4,10,12,14 * * *"
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # 🔥 VERY IMPORTANT for auto-commit
+
+    steps:
+      # ------------------- CHECKOUT -------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ------------------- PYTHON -------------------
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # ------------------- CHROME -------------------
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      # ------------------- INSTALL DEPENDENCIES -------------------
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scraper/requirements.txt
+
+      # ------------------- STEP 1: SCRAPE -------------------
+      - name: Run Flipshope Scraper
+        run: |
+          python scraper/scraper.py
+
+      # ------------------- STEP 2: RESOLVE LINKS -------------------
+      - name: Resolve Platform Links
+        run: |
+          python scraper/resolve_links.py
+
+      # ------------------- STEP 3: COMMIT RESULTS -------------------
+      - name: Commit updated deal files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto update deals (scrape + resolve)"
+          branch: main
+          file_pattern: |
+            scraper/data/deals_raw.json
+            scraper/data/deals.json
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          push_options: "--force"
