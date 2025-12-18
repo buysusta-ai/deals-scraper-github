@@ -51,9 +51,7 @@ jobs:
         with:
           commit_message: "Auto update deals (scrape + resolve)"
           branch: main
-          file_pattern: |
-            scraper/data/deals_raw.json
-            scraper/data/deals.json
+          file_pattern: "scraper/data/deals.json"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           push_options: "--force"
