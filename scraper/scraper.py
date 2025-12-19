@@ -75,55 +75,45 @@ class DealScraper:
         return el.text.strip() if el else ""
 
     def extract_discount(self, box):
-        """
-        Card ke poore text se % discount nikale
-        Example: 72% OFF, 35% off, Up to 60% OFF
-        """
-        try:
-            text = box.text.lower()
-            match = re.search(r"(\d{1,3})\s*%\s*off", text)
-            if match:
-                return f"{match.group(1)}% OFF"
-        except Exception:
-            pass
+        el = self.find(
+            box,
+            [
+                "div.flex.gap-1.font-semibold.text-[10px].md\\:text-[12px].leading-[14px].md\\:leading-[16px].text-[#828282] > div:nth-child(2)",
+                "[class*='discount']",
+                ".flex.gap-1",
+            ],
+        )
+        return el.text.strip() if el else ""
 
-        return ""
+    # ---------------- PLATFORM FROM FINAL URL (FIXED) ----------------
+    def extract_platform_from_url(self, url: str):
+        if not url:
+            return "unknown"
 
-    def extract_platform(self, box):
-        try:
-            img = self.find(box, ["img"])
-            alt = ((img.get_attribute("alt") or "") + " " +
-                   (img.get_attribute("aria-label") or "")
-                   ).lower().strip()
+        u = url.lower()
 
-            if not alt:
-                return "unknown"
+        PLATFORM_MAP = {
+            "amazon": ["amazon.in", "amazon.com"],
+            "flipkart": ["flipkart.com"],
+            "myntra": ["myntra.com"],
+            "ajio": ["ajio.com"],
+            "tatacliq": ["tatacliq.com"],
+            "meesho": ["meesho.com"],
+            "reliancedigital": ["reliancedigital.in"],
+            "jiomart": ["jiomart.com"],
+            "nykaa": ["nykaa.com"],
+            "pepperfry": ["pepperfry.com"],
+            "firstcry": ["firstcry.com"],
+            "croma": ["croma.com"],
+            "snapdeal": ["snapdeal.com"],
+            "shopclues": ["shopclues.com"],
+            "adidas": ["adidas"],
+        }
 
-            PLATFORM_KEYWORDS = {
-                "flipkart": ["flip", "flipkart"],
-                "amazon": ["ama", "amazon"],
-                "myntra": ["myn", "myntra"],
-                "ajio": ["ajio"],
-                "meesho": ["meesho"],
-                "croma": ["croma"],
-                "reliancedigital": ["reliance digital", "reliancedigital", "reliance"],
-                "shopclues": ["shopclues"],
-                "snapdeal": ["snapdeal"],
-                "tatacliq": ["tatacliq", "tata cliq"],
-                "nykaa": ["nykaa"],
-                "pepperfry": ["pepperfry"],
-                "firstcry": ["firstcry", "first cry"],
-                "jiomart": ["jiomart", "jio mart"],
-                "purplle": ["purplle"],
-            }
-
-            for platform, keywords in PLATFORM_KEYWORDS.items():
-                for kw in keywords:
-                    if kw in alt:
-                        return platform
-
-        except Exception:
-            pass
+        for platform, keywords in PLATFORM_MAP.items():
+            for kw in keywords:
+                if kw in u:
+                    return platform
 
         return "unknown"
 
@@ -155,7 +145,7 @@ class DealScraper:
             return final_url
 
         except Exception as e:
-            print("⚠ link error:", e)
+            print("⚠ link error:", show)
             return ""
 
     # ---------------- SCRAPER ----------------
@@ -197,7 +187,7 @@ class DealScraper:
                 "price": self.extract_price(box),
                 "mrp": self.extract_mrp(box),
                 "discount": self.extract_discount(box),
-                "platform": self.extract_platform(box),
+                "platform": self.extract_platform_from_url(real_link),
                 "original_link": real_link,
                 "timestamp": datetime.utcnow().isoformat() + "Z",
             }
@@ -223,9 +213,10 @@ class DealScraper:
         seen_ids = set()
         deduped = []
         for deal in combined:
-            if deal["id"] in seen_ids:
+            deal_id = deal.get("id")
+            if deal_id in seen_ids:
                 continue
-            seen_ids.add(deal["id"])
+            seen_ids.add(deal_id)
             deduped.append(deal)
 
         deduped = deduped[:200]
@@ -233,7 +224,10 @@ class DealScraper:
         with open(self.raw_file, "w", encoding="utf-8") as f:
             json.dump(deduped, f, indent=2, ensure_ascii=False)
 
-        print(f"💾 RAW saved: {len(deduped)} deals")
+        print(
+            f"💾 RAW saved: {len(deduped)} deals "
+            "(new on top, max 200, no duplicate ids)"
+        )
         print("📁 RAW  :", self.raw_file)
 
     def close(self):
