@@ -46,14 +46,19 @@ class DealScraper:
     def find(self, box, selectors):
         for sel in selectors:
             try:
-                return box.find_element(By.CSS_SELECTOR, sel)
+                el = box.find_element(By.CSS_SELECTOR, sel)
+                if el:
+                    return el
             except:
                 pass
         return None
 
     # ---------------- PRICE HELPERS ----------------
     def clean_price(self, text):
-        return int(re.sub(r"[^\d]", "", text)) if text else 0
+        if not text:
+            return 0
+        val = re.sub(r"[^\d]", "", text)
+        return int(val) if val.isdigit() else 0
 
     # ---------------- EXTRACTORS ----------------
     def extract_title(self, box):
@@ -62,7 +67,12 @@ class DealScraper:
 
     def extract_image(self, box):
         el = self.find(box, ["img"])
-        return el.get_attribute("src") if el else ""
+        if not el:
+            return ""
+        src = el.get_attribute("src") or ""
+        if src.startswith("http"):
+            return src
+        return ""
 
     def extract_price(self, box):
         el = self.find(box, [".disc_price p", ".price p"])
@@ -72,30 +82,24 @@ class DealScraper:
         el = self.find(box, ["strike", ".actual_price p"])
         return el.text.strip() if el else ""
 
-    # ---------------- DISCOUNT (FIXED) ----------------
+    # ---------------- DISCOUNT (STRICT) ----------------
     def extract_discount(self, box, price, mrp):
-        # Try % OFF text
         for el in box.find_elements(By.XPATH, ".//*[contains(text(), '%')]"):
             txt = el.text.strip()
-            if "%" in txt:
+            if re.search(r"\d+%", txt):
                 return txt
 
-        # Try SAVE ₹xxx
-        for el in box.find_elements(By.XPATH, ".//*[contains(text(), 'Save')]"):
-            return el.text.strip()
-
-        # Auto calculate
         p = self.clean_price(price)
         m = self.clean_price(mrp)
-        if p and m and m > p:
+        if p > 0 and m > p:
             percent = round(((m - p) / m) * 100)
             return f"{percent}% OFF"
 
-        return ""
+        return "0% OFF"
 
-    # ---------------- PLATFORM DETECTION (FINAL) ----------------
+    # ---------------- PLATFORM DETECTION ----------------
     def detect_platform(self, final_url, image_url):
-        text = (final_url + " " + image_url).lower()
+        text = f"{final_url} {image_url}".lower()
 
         PLATFORM_MAP = {
             "amazon": ["amazon.in", "amazon.com"],
@@ -120,7 +124,6 @@ class DealScraper:
                 if k in text:
                     return platform
 
-        # Flipshope fallback by redirect id
         if "flipshope.com/redirect" in final_url:
             if "/7" in final_url:
                 return "myntra"
@@ -139,7 +142,9 @@ class DealScraper:
                 return ""
 
             self.driver.execute_script("arguments[0].click();", btn)
-            WebDriverWait(self.driver, 10).until(lambda d: len(d.window_handles) > 1)
+            WebDriverWait(self.driver, 10).until(
+                lambda d: len(d.window_handles) > 1
+            )
 
             self.driver.switch_to.window(self.driver.window_handles[1])
             time.sleep(2)
@@ -148,7 +153,7 @@ class DealScraper:
             self.driver.close()
             self.driver.switch_to.window(self.driver.window_handles[0])
 
-            return url
+            return url if url.startswith("http") else ""
         except:
             return ""
 
@@ -176,10 +181,19 @@ class DealScraper:
             if not link:
                 continue
 
+            image = self.extract_image(box)
+            if not image:
+                continue
+
             price = self.extract_price(box)
             mrp = self.extract_mrp(box)
+
+            p = self.clean_price(price)
+            m = self.clean_price(mrp)
+            if p == 0 or m == 0 or p > m:
+                continue
+
             discount = self.extract_discount(box, price, mrp)
-            image = self.extract_image(box)
             platform = self.detect_platform(link, image)
 
             deals.append({
@@ -202,7 +216,7 @@ class DealScraper:
     def save_raw_only(self, deals):
         with open(self.raw_file, "w", encoding="utf-8") as f:
             json.dump(deals, f, indent=2, ensure_ascii=False)
-        print(f"💾 RAW saved: {len(deals)} deals")
+        print(f"💾 RAW saved: {len(deals)} clean deals")
 
     def close(self):
         self.driver.quit()
