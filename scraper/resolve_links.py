@@ -13,6 +13,8 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(BASE, "data", "deals_raw.json")
 FINAL = os.path.join(BASE, "data", "deals.json")
 
+MAX_DEALS = 300  # deals.json me max itne hi deals rahenge
+
 
 def resolve_flipshope(url):
     """EXISTING LOGIC - UNTOUCHED"""
@@ -85,6 +87,42 @@ def vcommission_convert(url, platform):
         return url
 
 
+def merge_with_existing(new_deals):
+    """
+    new_deals: current run ke resolved deals (latest)
+    deals.json: existing history
+
+    Output: merged list (new on top, max 300, id-based dedupe)
+    """
+    try:
+        if os.path.exists(FINAL):
+            with open(FINAL, "r", encoding="utf-8") as f:
+                old_deals = json.load(f)
+        else:
+            old_deals = []
+    except json.JSONDecodeError:
+        old_deals = []
+
+    # New deals TOP par, purane niche
+    combined = new_deals + old_deals
+
+    # ID ke basis par dedupe: naya occurrence rakho, purana drop
+    seen_ids = set()
+    deduped = []
+    for deal in combined:
+        deal_id = deal.get("id")
+        if not deal_id:
+            deduped.append(deal)
+            continue
+        if deal_id in seen_ids:
+            continue
+        seen_ids.add(deal_id)
+        deduped.append(deal)
+
+    # Sirf max MAX_DEALS entries (latest upar)
+    return deduped[:MAX_DEALS]
+
+
 def main():
     time.sleep(2)
 
@@ -128,11 +166,14 @@ def main():
 
         final_deals.append(new_d)
 
+    # 🔁 Existing deals.json ke saath merge (rolling 300)
+    merged_deals = merge_with_existing(final_deals)
+
     # SAVE EXACT SAME FORMAT
     with open(FINAL, "w", encoding="utf-8") as f:
-        json.dump(final_deals, f, indent=2, ensure_ascii=False)
+        json.dump(merged_deals, f, indent=2, ensure_ascii=False)
 
-    print(f"\n💾 ✅ Saved {len(final_deals)} affiliate deals → {FINAL}")
+    print(f"\n💾 ✅ Saved {len(merged_deals)} affiliate deals → {FINAL}")
 
     # 🧹 RAW JSON cleanup: keep only final deals.json
     try:
