@@ -6,7 +6,6 @@ import hashlib
 import re
 from datetime import datetime
 
-
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from selenium import webdriver
@@ -80,17 +79,45 @@ class DealScraper:
         return el.text.strip() if el else ""
 
     def extract_platform(self, box):
+        """
+        Flipshope card ke image alt / aria-label se platform detect kare.
+        Yahan common Indian stores ke keywords map kiye gaye hain.
+        """
         try:
             img = self.find(box, ["img"])
-            alt = (img.get_attribute("alt") or "").lower()
-            if "flip" in alt:
-                return "flipkart"
-            if "ama" in alt:
-                return "amazon"
-            if "myn" in alt:
-                return "myntra"
-        except:
+            alt = ((img.get_attribute("alt") or "") + " " +
+                   (img.get_attribute("aria-label") or "")
+                   ).lower().strip()
+
+            if not alt:
+                return "unknown"
+
+            PLATFORM_KEYWORDS = {
+                "flipkart": ["flip", "flipkart"],
+                "amazon": ["ama", "amazon"],
+                "myntra": ["myn", "myntra"],
+                "ajio": ["ajio"],
+                "meesho": ["meesho"],
+                "croma": ["croma"],
+                "reliancedigital": ["reliance digital", "reliancedigital", "reliance"],
+                "shopclues": ["shopclues"],
+                "snapdeal": ["snapdeal"],
+                "tatacliq": ["tatacliq", "tata cliq"],
+                "nykaa": ["nykaa"],
+                "pepperfry": ["pepperfry"],
+                "firstcry": ["firstcry", "first cry"],
+                "jiomart": ["jiomart", "jio mart"],
+                "purplle": ["purplle"],
+            }
+
+            for platform, keywords in PLATFORM_KEYWORDS.items():
+                for kw in keywords:
+                    if kw in alt:
+                        return platform
+
+        except Exception:
             pass
+
         return "unknown"
 
     # ---------------- REAL LINK (JS CLICK) ----------------
@@ -198,7 +225,7 @@ class DealScraper:
             seen_ids.add(deal_id)
             deduped.append(deal)
 
-        # Sirf max 200 entries rakho
+        # Sirf max 200 entries rakho  (yahi tumhara purana limit hai)
         deduped = deduped[:200]
 
         # File write
