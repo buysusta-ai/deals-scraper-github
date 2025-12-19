@@ -75,14 +75,21 @@ class DealScraper:
         return el.text.strip() if el else ""
 
     def extract_discount(self, box):
-        el = self.find(box, ["[class*='discount']", ".flex.gap-1"])
-        return el.text.strip() if el else ""
+        """
+        Card ke poore text se % discount nikale
+        Example: 72% OFF, 35% off, Up to 60% OFF
+        """
+        try:
+            text = box.text.lower()
+            match = re.search(r"(\d{1,3})\s*%\s*off", text)
+            if match:
+                return f"{match.group(1)}% OFF"
+        except Exception:
+            pass
+
+        return ""
 
     def extract_platform(self, box):
-        """
-        Flipshope card ke image alt / aria-label se platform detect kare.
-        Yahan common Indian stores ke keywords map kiye gaye hain.
-        """
         try:
             img = self.find(box, ["img"])
             alt = ((img.get_attribute("alt") or "") + " " +
@@ -202,7 +209,6 @@ class DealScraper:
 
     # ---------------- SAVE ----------------
     def save_raw_only(self, new_deals):
-        # Purana data load karo
         try:
             if os.path.exists(self.raw_file):
                 with open(self.raw_file, "r", encoding="utf-8") as f:
@@ -212,30 +218,22 @@ class DealScraper:
         except json.JSONDecodeError:
             old_deals = []
 
-        # New deals ko TOP par rakho
         combined = new_deals + old_deals
 
-        # Duplicates ko id ke basis par hatao (pehla occurrence rakho, baaki drop)
         seen_ids = set()
         deduped = []
         for deal in combined:
-            deal_id = deal.get("id")
-            if deal_id in seen_ids:
+            if deal["id"] in seen_ids:
                 continue
-            seen_ids.add(deal_id)
+            seen_ids.add(deal["id"])
             deduped.append(deal)
 
-        # Sirf max 200 entries rakho  (yahi tumhara purana limit hai)
         deduped = deduped[:200]
 
-        # File write
         with open(self.raw_file, "w", encoding="utf-8") as f:
             json.dump(deduped, f, indent=2, ensure_ascii=False)
 
-        print(
-            f"💾 RAW saved: {len(deduped)} deals "
-            "(new on top, max 200, no duplicate ids)"
-        )
+        print(f"💾 RAW saved: {len(deduped)} deals")
         print("📁 RAW  :", self.raw_file)
 
     def close(self):
