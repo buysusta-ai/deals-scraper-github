@@ -82,20 +82,19 @@ class DealScraper:
 
     def extract_discount(self, box):
         """
-        Card ke poore text se % discount nikale:
-        1) Agar 'xx% OFF' / 'xx% off' text mil jaye to use karo.
-        2) Agar na mile to price/mrp se percentage calculate karo.
+        1) Card ke text se 'xx% OFF/xx% off' nikalo.
+        2) Agar na mile to price/mrp se % calculate karo.
         """
-        # 1. Direct percentage text
+        # 1. Direct percentage text from the whole card
         try:
             text = box.text.lower()
-            match = re.search(r"(d{1,3})s*%s*off", text)
-            if match:
-                return f"{match.group(1)}% OFF"
+            m = re.search(r"(d{1,3})s*%s*off", text)
+            if m:
+                return f"{m.group(1)}% OFF"
         except Exception:
             pass
 
-        # 2. Fallback: price/mrp se calculate
+        # 2. Fallback: calculate from price and mrp
         price_text = self.extract_price(box)
         mrp_text = self.extract_mrp(box)
 
@@ -133,8 +132,8 @@ class DealScraper:
             "adidas": ["adidas"],
         }
 
-        for platform, keywords in PLATFORM_MAP.items():
-            for kw in keywords:
+        for platform, kws in PLATFORM_MAP.items():
+            for kw in kws:
                 if kw in u:
                     return platform
 
@@ -254,10 +253,10 @@ class DealScraper:
 
 
 def main():
-        bot = DealScraper()
-        deals = bot.scrape()
-        bot.save_raw_only(deals)
-        bot.close()
+    bot = DealScraper()
+    deals = bot.scrape()
+    bot.save_raw_only(deals)
+    bot.close()
 
 
 if __name__ == "__main__":
