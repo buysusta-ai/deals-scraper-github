@@ -73,28 +73,25 @@ class DealScraper:
         return el.get_attribute("src") if el else ""
 
     def extract_price(self, box):
-        # Selling / deal price
         el = self.find(box, [".disc_price p", ".price p"])
         return el.text.strip() if el else ""
 
     def extract_mrp(self, box):
-        # Original MRP (strike ya actual price)
         el = self.find(box, ["strike", ".actual_price p"])
         return el.text.strip() if el else ""
 
     def extract_discount(self, box):
         """
-        Discount ko hamesha percentage me nikaalo:
-        1) Card ke kisi bhi text me 'xx% OFF' / 'xx% off' mile to use.
-        2) Warna price/mrp se % calculate karo.
+        Card ke poore text se % discount nikale:
+        1) Agar 'xx% OFF' / 'xx% off' text mil jaye to use karo.
+        2) Agar na mile to price/mrp se percentage calculate karo.
         """
-        # 1. Card ke andar direct % text
+        # 1. Direct percentage text
         try:
-            for el in box.find_elements(By.XPATH, ".//*[contains(text(), '%')]"):
-                txt = el.text.strip()
-                m = re.search(r"(d{1,3})s*%s*off", txt, flags=re.I)
-                if m:
-                    return f"{m.group(1)}% OFF"
+            text = box.text.lower()
+            match = re.search(r"(d{1,3})s*%s*off", text)
+            if match:
+                return f"{match.group(1)}% OFF"
         except Exception:
             pass
 
@@ -239,10 +236,9 @@ class DealScraper:
         seen_ids = set()
         deduped = []
         for deal in combined:
-            deal_id = deal.get("id")
-            if deal_id in seen_ids:
+            if deal["id"] in seen_ids:
                 continue
-            seen_ids.add(deal_id)
+            seen_ids.add(deal["id"])
             deduped.append(deal)
 
         deduped = deduped[:200]
@@ -250,10 +246,7 @@ class DealScraper:
         with open(self.raw_file, "w", encoding="utf-8") as f:
             json.dump(deduped, f, indent=2, ensure_ascii=False)
 
-        print(
-            f"💾 RAW saved: {len(deduped)} deals "
-            "(new on top, max 200, no duplicate ids)"
-        )
+        print(f"💾 RAW saved: {len(deduped)} deals")
         print("📁 RAW  :", self.raw_file)
 
     def close(self):
@@ -261,10 +254,10 @@ class DealScraper:
 
 
 def main():
-    bot = DealScraper()
-    deals = bot.scrape()
-    bot.save_raw_only(deals)
-    bot.close()
+        bot = DealScraper()
+        deals = bot.scrape()
+        bot.save_raw_only(deals)
+        bot.close()
 
 
 if __name__ == "__main__":
