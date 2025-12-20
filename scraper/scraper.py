@@ -57,12 +57,6 @@ class DealScraper:
                 pass
         return None
 
-    def clean_price(self, text):
-        if not text:
-            return 0
-        val = re.sub(r"[^d]", "", text)
-        return int(val) if val.isdigit() else 0
-
     # ---------------- EXTRACTORS ----------------
     def extract_title(self, box):
         el = self.find(box, ["p", "div.middle_sec p"])
@@ -82,52 +76,38 @@ class DealScraper:
 
     def extract_discount(self, box):
         """
-        1) Card ke text se 'xx% OFF/xx% off' nikalo.
-        2) Agar na mile to price/mrp se % calculate karo.
+        Card ke poore text se % discount nikale
+        Example: 72% OFF, 35% off, Up to 60% OFF
         """
-        # 1. Direct percentage text from the whole card
         try:
             text = box.text.lower()
-            m = re.search(r"(d{1,3})s*%s*off", text)
-            if m:
-                return f"{m.group(1)}% OFF"
+            match = re.search(r"(d{1,3})s*%s*off", text)
+            if match:
+                return f"{match.group(1)}% OFF"
         except Exception:
             pass
-
-        # 2. Fallback: calculate from price and mrp
-        price_text = self.extract_price(box)
-        mrp_text = self.extract_mrp(box)
-
-        p = self.clean_price(price_text)
-        m = self.clean_price(mrp_text)
-
-        if p > 0 and m > p:
-            percent = round(((m - p) / m) * 100)
-            return f"{percent}% OFF"
 
         return ""
 
     # ---------------- PLATFORM FROM FINAL URL ----------------
     def extract_platform_from_url(self, url: str):
         """
-        Maximum platforms support:
         Amazon, Flipkart, Myntra, Ajio, Meesho, TataCliq, Nykaa,
         JioMart, Snapdeal, ShopClues, Pepperfry, Croma, FirstCry,
-        RelianceDigital, Adidas (India) etc. [web:610][web:613]
+        RelianceDigital, Adidas, etc. handle karega. [web:610][web:613]
         """
         if not url:
             return "unknown"
 
-        # normalize: lower + query/fragment hatao
-        u = url.lower()
+        u_orig = url
+        u = u_orig.lower()
         u = u.split("?", 1)[0].split("#", 1)[0]
 
-        # Flipshope ya kisi aur redirect URL me actual product link query me ho sakta hai
-        # example: ...redirect?url=https://www.amazon.in/...
-        if "http" in url and "redirect" in url.lower():
-            parts = url.split("http")
+        # Redirect URL ke andar actual link ho to nikaalo
+        if "http" in u_orig and "redirect" in u_orig.lower():
+            parts = u_orig.split("http")
             for part in parts:
-                if "amazon." in part or "flipkart." in part or "myntra." in part or "ajio." in part or "meesho." in part:
+                if any(x in part.lower() for x in ["amazon.", "flipkart.", "myntra.", "ajio.", "meesho."]):
                     u2 = ("http" + part).lower()
                     u2 = u2.split("?", 1)[0].split("#", 1)[0]
                     u = u2
@@ -160,7 +140,6 @@ class DealScraper:
                 if kw in u:
                     return platform
 
-        # last fallback for koi naya pattern
         if "amazon" in u:
             return "amazon"
         if "flipkart" in u:
