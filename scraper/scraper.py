@@ -85,7 +85,7 @@ class DealScraper:
         )
         return el.text.strip() if el else ""
 
-    # ---------------- PLATFORM FROM FINAL URL (FIXED) ----------------
+    # ---------------- PLATFORM FROM FINAL URL ----------------
     def extract_platform_from_url(self, url: str):
         if not url:
             return "unknown"
@@ -145,7 +145,7 @@ class DealScraper:
             return final_url
 
         except Exception as e:
-            print("⚠ link error:", show)
+            print("⚠ link error:", e)
             return ""
 
     # ---------------- SCRAPER ----------------
