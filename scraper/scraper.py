@@ -25,15 +25,15 @@ class DealScraper:
         self.raw_file = os.path.join(self.data_dir, "deals_raw.json")
         self.setup_driver()
 
-    # ---------------- DRIVER ----------------
+    # ---------------- DRIVER (STABLE) ----------------
     def setup_driver(self):
         options = Options()
-        options.add_argument("--headless=new")
+        options.add_argument("--headless")  # 🔥 OLD STABLE MODE
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--disable-blink-features=AutomationControlled")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument("--disable-popup-blocking")
-        options.add_argument("--disable-notifications")
+        options.add_argument("--disable-gpu")
 
         self.driver = webdriver.Chrome(service=Service(), options=options)
         self.driver.execute_script(
@@ -48,13 +48,12 @@ class DealScraper:
     def find(self, box, selectors):
         for sel in selectors:
             try:
-                el = box.find_element(By.CSS_SELECTOR, sel)
-                if el:
-                    return el
+                return box.find_element(By.CSS_SELECTOR, sel)
             except:
                 pass
         return None
 
+    # ---------------- PRICE HELPERS ----------------
     def clean_price(self, text):
         if not text:
             return 0
@@ -70,8 +69,7 @@ class DealScraper:
         el = self.find(box, ["img"])
         if not el:
             return ""
-        src = el.get_attribute("src") or ""
-        return src if src.startswith("http") else ""
+        return el.get_attribute("src") or ""
 
     def extract_price(self, box):
         el = self.find(box, [".disc_price p", ".price p"])
@@ -81,98 +79,93 @@ class DealScraper:
         el = self.find(box, ["strike", ".actual_price p"])
         return el.text.strip() if el else ""
 
+    # ---------------- DISCOUNT (SAFE) ----------------
     def extract_discount(self, box, price, mrp):
         for el in box.find_elements(By.XPATH, ".//*[contains(text(), '%')]"):
-            if re.search(r"\d+%", el.text):
-                return el.text.strip()
+            txt = el.text.strip()
+            if re.search(r"\d+%", txt):
+                return txt
 
         p = self.clean_price(price)
         m = self.clean_price(mrp)
         if p > 0 and m > p:
-            return f"{round(((m - p) / m) * 100)}% OFF"
+            percent = round(((m - p) / m) * 100)
+            return f"{percent}% OFF"
 
-        return "0% OFF"
+        return ""
 
-    # ---------------- PLATFORM ----------------
+    # ---------------- PLATFORM DETECTION ----------------
     def detect_platform(self, final_url, image_url):
         text = f"{final_url} {image_url}".lower()
 
-        platforms = {
-            "amazon": ["amazon.in"],
+        PLATFORM_MAP = {
+            "amazon": ["amazon.in", "amazon.com"],
             "flipkart": ["flipkart.com"],
             "myntra": ["myntra.com"],
             "ajio": ["ajio.com"],
+            "tatacliq": ["tatacliq.com"],
             "meesho": ["meesho.com"],
             "nykaa": ["nykaa.com"],
             "jiomart": ["jiomart.com"],
+            "reliancedigital": ["reliancedigital.in"],
+            "croma": ["croma.com"],
+            "pepperfry": ["pepperfry.com"],
+            "firstcry": ["firstcry.com"],
+            "snapdeal": ["snapdeal.com"],
+            "shopclues": ["shopclues.com"],
+            "adidas": ["adidas"],
         }
 
-        for p, keys in platforms.items():
+        for platform, keys in PLATFORM_MAP.items():
             for k in keys:
                 if k in text:
-                    return p
+                    return platform
 
+        # Flipshope redirect fallback
         if "flipshope.com/redirect" in final_url:
+            if "/7" in final_url:
+                return "myntra"
             if "/2" in final_url:
                 return "amazon"
             if "/1" in final_url:
                 return "flipkart"
-            if "/7" in final_url:
-                return "myntra"
 
         return "unknown"
 
-    # ---------------- BUTTON CLICK LINK ----------------
+    # ---------------- REAL LINK (BUTTON CLICK ONLY) ----------------
     def extract_real_link(self, box):
         try:
-            btn = self.find(box, ["button", "a"])
+            btn = self.find(box, ["button"])
             if not btn:
                 return ""
 
-            self.driver.execute_script(
-                "arguments[0].scrollIntoView({block:'center'});", btn
-            )
-            time.sleep(0.5)
-
-            old_handles = self.driver.window_handles
             self.driver.execute_script("arguments[0].click();", btn)
+            WebDriverWait(self.driver, 10).until(
+                lambda d: len(d.window_handles) > 1
+            )
 
-            # Wait for popup OR redirect
-            for _ in range(20):
-                time.sleep(0.5)
-                if len(self.driver.window_handles) > len(old_handles):
-                    break
+            self.driver.switch_to.window(self.driver.window_handles[1])
+            time.sleep(2)
 
-            # New tab opened
-            if len(self.driver.window_handles) > len(old_handles):
-                self.driver.switch_to.window(self.driver.window_handles[-1])
-                time.sleep(2)
-                url = self.driver.current_url
-                self.driver.close()
-                self.driver.switch_to.window(old_handles[0])
-                return url if url.startswith("http") else ""
+            url = self.driver.current_url
 
-            # Same tab redirect
-            current = self.driver.current_url
-            if "flipshope.com" not in current:
-                self.driver.back()
-                time.sleep(1)
-                return current
+            self.driver.close()
+            self.driver.switch_to.window(self.driver.window_handles[0])
 
+            return url if url.startswith("http") else ""
+        except:
             return ""
 
-        except Exception as e:
-            print("❌ Link error:", e)
-            return ""
-
-    # ---------------- SCRAPE ----------------
+    # ---------------- SCRAPER ----------------
     def scrape(self):
         print("🔄 Loading FlipShope...")
         self.driver.get("https://flipshope.com/")
-        time.sleep(6)
+        time.sleep(5)
 
         for _ in range(6):
-            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+            self.driver.execute_script(
+                "window.scrollTo(0, document.body.scrollHeight)"
+            )
             time.sleep(1)
 
         boxes = self.driver.find_elements(
@@ -194,26 +187,22 @@ class DealScraper:
             image = self.extract_image(box)
             price = self.extract_price(box)
             mrp = self.extract_mrp(box)
+            discount = self.extract_discount(box, price, mrp)
+            platform = self.detect_platform(link, image)
 
-            p = self.clean_price(price)
-            m = self.clean_price(mrp)
-            if p == 0 or m == 0 or p > m:
-                continue
-
-            deal = {
+            deals.append({
                 "id": self.generate_id(title),
                 "title": title,
                 "image": image,
                 "price": price,
                 "mrp": mrp,
-                "discount": self.extract_discount(box, price, mrp),
-                "platform": self.detect_platform(link, image),
+                "discount": discount,
+                "platform": platform,
                 "original_link": link,
-                "timestamp": datetime.utcnow().isoformat() + "Z",
-            }
+                "timestamp": datetime.utcnow().isoformat() + "Z"
+            })
 
-            deals.append(deal)
-            print(f"✔ {title[:40]} → {deal['platform']}")
+            print(f"✔ {title[:40]} → {platform}")
 
         return deals
 
