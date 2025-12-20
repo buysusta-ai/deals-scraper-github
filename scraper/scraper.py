@@ -60,7 +60,7 @@ class DealScraper:
     def clean_price(self, text):
         if not text:
             return 0
-        val = re.sub(r"[^d]", "", text)
+        val = re.sub(r"[^0-9]", "", text)
         return int(val) if val.isdigit() else 0
 
     # ---------------- EXTRACTORS ----------------
@@ -80,21 +80,20 @@ class DealScraper:
         el = self.find(box, ["strike", ".actual_price p"])
         return el.text.strip() if el else ""
 
+    # ---------------- DISCOUNT FIXED ----------------
     def extract_discount(self, box):
         """
-        1) Card ke text se 'xx% OFF/xx% off' nikalo.
-        2) Agar na mile to price/mrp se % calculate karo.
+        1) Try to extract 'xx% OFF' or 'xx% off' from card text.
+        2) If not found, calculate from price/mrp.
         """
-        # 1. Direct percentage text from the whole card
         try:
             text = box.text.lower()
-            m = re.search(r"(d{1,3})s*%s*off", text)
+            m = re.search(r"(\d{1,3})\s*%\s*off", text)
             if m:
                 return f"{m.group(1)}% OFF"
         except Exception:
             pass
 
-        # 2. Fallback: calculate from price and mrp
         price_text = self.extract_price(box)
         mrp_text = self.extract_mrp(box)
 
@@ -107,7 +106,7 @@ class DealScraper:
 
         return ""
 
-    # ---------------- PLATFORM FROM FINAL URL ----------------
+    # ---------------- PLATFORM FROM FINAL URL FIXED ----------------
     def extract_platform_from_url(self, url: str):
         if not url:
             return "unknown"
@@ -129,7 +128,7 @@ class DealScraper:
             "croma": ["croma.com"],
             "snapdeal": ["snapdeal.com"],
             "shopclues": ["shopclues.com"],
-            "adidas": ["adidas"],
+            "adidas": ["adidas.com", "adidas"],
         }
 
         for platform, kws in PLATFORM_MAP.items():
