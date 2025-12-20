@@ -57,6 +57,13 @@ class DealScraper:
                 pass
         return None
 
+    def clean_price(self, text):
+        if not text:
+            return 0
+        # sirf digits rakho
+        val = re.sub(r"[^d]", "", text)
+        return int(val) if val.isdigit() else 0
+
     # ---------------- EXTRACTORS ----------------
     def extract_title(self, box):
         el = self.find(box, ["p", "div.middle_sec p"])
@@ -76,16 +83,29 @@ class DealScraper:
 
     def extract_discount(self, box):
         """
-        Card ke poore text se % discount nikale
-        Example: 72% OFF, 35% off, Up to 60% OFF
+        1) Card ke text se 'xx% OFF/xx% off' nikalo.
+        2) Agar na mile to price/mrp se % calculate karo.
         """
+        # 1. Direct percentage text from the whole card
         try:
             text = box.text.lower()
-            match = re.search(r"(d{1,3})s*%s*off", text)
-            if match:
-                return f"{match.group(1)}% OFF"
+            # sahi regex: d = digit, s = space
+            m = re.search(r"(d{1,3})s*%s*off", text)
+            if m:
+                return f"{m.group(1)}% OFF"
         except Exception:
             pass
+
+        # 2. Fallback: calculate from price and mrp
+        price_text = self.extract_price(box)
+        mrp_text = self.extract_mrp(box)
+
+        p = self.clean_price(price_text)
+        m = self.clean_price(mrp_text)
+
+        if p > 0 and m > p:
+            percent = round(((m - p) / m) * 100)
+            return f"{percent}% OFF"
 
         return ""
 
@@ -94,7 +114,7 @@ class DealScraper:
         """
         Amazon, Flipkart, Myntra, Ajio, Meesho, TataCliq, Nykaa,
         JioMart, Snapdeal, ShopClues, Pepperfry, Croma, FirstCry,
-        RelianceDigital, Adidas, etc. handle karega. [web:610][web:613]
+        RelianceDigital, BigBasket, Lenskart, Pharmeasy, PaytmMall, Adidas. [web:610][web:640]
         """
         if not url:
             return "unknown"
