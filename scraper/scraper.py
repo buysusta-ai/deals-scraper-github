@@ -60,7 +60,7 @@ class DealScraper:
     def clean_price(self, text):
         if not text:
             return 0
-        val = re.sub(r"[^0-9]", "", text)
+        val = re.sub(r"[^d]", "", text)
         return int(val) if val.isdigit() else 0
 
     # ---------------- EXTRACTORS ----------------
@@ -80,20 +80,21 @@ class DealScraper:
         el = self.find(box, ["strike", ".actual_price p"])
         return el.text.strip() if el else ""
 
-    # ---------------- DISCOUNT FIXED ----------------
     def extract_discount(self, box):
         """
-        1) Try to extract 'xx% OFF' or 'xx% off' from card text.
-        2) If not found, calculate from price/mrp.
+        1) Card ke text se 'xx% OFF/xx% off' nikalo.
+        2) Agar na mile to price/mrp se % calculate karo.
         """
+        # 1. Direct percentage text from the whole card
         try:
             text = box.text.lower()
-            m = re.search(r"(\d{1,3})\s*%\s*off", text)
+            m = re.search(r"(d{1,3})s*%s*off", text)
             if m:
                 return f"{m.group(1)}% OFF"
         except Exception:
             pass
 
+        # 2. Fallback: calculate from price and mrp
         price_text = self.extract_price(box)
         mrp_text = self.extract_mrp(box)
 
@@ -106,35 +107,74 @@ class DealScraper:
 
         return ""
 
-    # ---------------- PLATFORM FROM FINAL URL FIXED ----------------
+    # ---------------- PLATFORM FROM FINAL URL ----------------
     def extract_platform_from_url(self, url: str):
+        """
+        Maximum platforms support:
+        Amazon, Flipkart, Myntra, Ajio, Meesho, TataCliq, Nykaa,
+        JioMart, Snapdeal, ShopClues, Pepperfry, Croma, FirstCry,
+        RelianceDigital, Adidas (India) etc. [web:610][web:613]
+        """
         if not url:
             return "unknown"
 
+        # normalize: lower + query/fragment hatao
         u = url.lower()
+        u = u.split("?", 1)[0].split("#", 1)[0]
+
+        # Flipshope ya kisi aur redirect URL me actual product link query me ho sakta hai
+        # example: ...redirect?url=https://www.amazon.in/...
+        if "http" in url and "redirect" in url.lower():
+            parts = url.split("http")
+            for part in parts:
+                if "amazon." in part or "flipkart." in part or "myntra." in part or "ajio." in part or "meesho." in part:
+                    u2 = ("http" + part).lower()
+                    u2 = u2.split("?", 1)[0].split("#", 1)[0]
+                    u = u2
+                    break
 
         PLATFORM_MAP = {
             "amazon": ["amazon.in", "amazon.com"],
-            "flipkart": ["flipkart.com"],
+            "flipkart": ["flipkart.com", "flipkart.in"],
             "myntra": ["myntra.com"],
             "ajio": ["ajio.com"],
-            "tatacliq": ["tatacliq.com"],
             "meesho": ["meesho.com"],
-            "reliancedigital": ["reliancedigital.in"],
-            "jiomart": ["jiomart.com"],
-            "nykaa": ["nykaa.com"],
-            "pepperfry": ["pepperfry.com"],
-            "firstcry": ["firstcry.com"],
-            "croma": ["croma.com"],
+            "tatacliq": ["tatacliq.com", "tata cliq", "tata-cliq"],
             "snapdeal": ["snapdeal.com"],
             "shopclues": ["shopclues.com"],
-            "adidas": ["adidas.com", "adidas"],
+            "nykaa": ["nykaa.com"],
+            "jiomart": ["jiomart.com"],
+            "firstcry": ["firstcry.com"],
+            "pepperfry": ["pepperfry.com"],
+            "croma": ["croma.com"],
+            "reliancedigital": ["reliancedigital.in"],
+            "bigbasket": ["bigbasket.com"],
+            "lenskart": ["lenskart.com"],
+            "pharmeasy": ["pharmeasy.in"],
+            "paytmmall": ["paytmmall.com"],
+            "adidas": ["adidas.in", "adidas.co", "adidas.com"],
         }
 
         for platform, kws in PLATFORM_MAP.items():
             for kw in kws:
                 if kw in u:
                     return platform
+
+        # last fallback for koi naya pattern
+        if "amazon" in u:
+            return "amazon"
+        if "flipkart" in u:
+            return "flipkart"
+        if "myntra" in u:
+            return "myntra"
+        if "ajio" in u:
+            return "ajio"
+        if "meesho" in u:
+            return "meesho"
+        if "snapdeal" in u:
+            return "snapdeal"
+        if "nykaa" in u:
+            return "nykaa"
 
         return "unknown"
 
@@ -214,7 +254,10 @@ class DealScraper:
             }
 
             raw_deals.append(deal)
-            print(f"✔ {title[:45]} → {deal['platform']} | {deal['discount']}")
+            print(
+                f"✔ {title[:45]} → {deal['platform']} | "
+                f"{deal['discount']} | {deal['price']} / {deal['mrp']}"
+            )
 
         return raw_deals
 
