@@ -57,6 +57,12 @@ class DealScraper:
                 pass
         return None
 
+    def clean_price(self, text):
+        if not text:
+            return 0
+        val = re.sub(r"[^d]", "", text)
+        return int(val) if val.isdigit() else 0
+
     # ---------------- EXTRACTORS ----------------
     def extract_title(self, box):
         el = self.find(box, ["p", "div.middle_sec p"])
@@ -67,23 +73,43 @@ class DealScraper:
         return el.get_attribute("src") if el else ""
 
     def extract_price(self, box):
+        # Selling / deal price
         el = self.find(box, [".disc_price p", ".price p"])
         return el.text.strip() if el else ""
 
     def extract_mrp(self, box):
+        # Original MRP (strike ya actual price)
         el = self.find(box, ["strike", ".actual_price p"])
         return el.text.strip() if el else ""
 
     def extract_discount(self, box):
-        el = self.find(
-            box,
-            [
-                "div.flex.gap-1.font-semibold.text-[10px].md\\:text-[12px].leading-[14px].md\\:leading-[16px].text-[#828282] > div:nth-child(2)",
-                "[class*='discount']",
-                ".flex.gap-1",
-            ],
-        )
-        return el.text.strip() if el else ""
+        """
+        Discount ko hamesha percentage me nikaalo:
+        1) Card ke kisi bhi text me 'xx% OFF' / 'xx% off' mile to use.
+        2) Warna price/mrp se % calculate karo.
+        """
+        # 1. Card ke andar direct % text
+        try:
+            for el in box.find_elements(By.XPATH, ".//*[contains(text(), '%')]"):
+                txt = el.text.strip()
+                m = re.search(r"(d{1,3})s*%s*off", txt, flags=re.I)
+                if m:
+                    return f"{m.group(1)}% OFF"
+        except Exception:
+            pass
+
+        # 2. Fallback: price/mrp se calculate
+        price_text = self.extract_price(box)
+        mrp_text = self.extract_mrp(box)
+
+        p = self.clean_price(price_text)
+        m = self.clean_price(mrp_text)
+
+        if p > 0 and m > p:
+            percent = round(((m - p) / m) * 100)
+            return f"{percent}% OFF"
+
+        return ""
 
     # ---------------- PLATFORM FROM FINAL URL ----------------
     def extract_platform_from_url(self, url: str):
@@ -193,7 +219,7 @@ class DealScraper:
             }
 
             raw_deals.append(deal)
-            print(f"✔ {title[:45]} → {deal['platform']}")
+            print(f"✔ {title[:45]} → {deal['platform']} | {deal['discount']}")
 
         return raw_deals
 
