@@ -13,6 +13,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 
 class DealScraper:
@@ -28,7 +29,7 @@ class DealScraper:
     # ---------------- DRIVER (STABLE) ----------------
     def setup_driver(self):
         options = Options()
-        options.add_argument("--headless")  # 🔥 OLD STABLE MODE
+        options.add_argument("--headless")
         options.add_argument("--window-size=1920,1080")
         options.add_argument("--disable-blink-features=AutomationControlled")
         options.add_argument("--no-sandbox")
@@ -57,7 +58,7 @@ class DealScraper:
     def clean_price(self, text):
         if not text:
             return 0
-        val = re.sub(r"[^\d]", "", text)
+        val = re.sub(r"[^d]", "", text)
         return int(val) if val.isdigit() else 0
 
     # ---------------- EXTRACTORS ----------------
@@ -83,7 +84,7 @@ class DealScraper:
     def extract_discount(self, box, price, mrp):
         for el in box.find_elements(By.XPATH, ".//*[contains(text(), '%')]"):
             txt = el.text.strip()
-            if re.search(r"\d+%", txt):
+            if re.search(r"d+%", txt):
                 return txt
 
         p = self.clean_price(price)
@@ -121,7 +122,6 @@ class DealScraper:
                 if k in text:
                     return platform
 
-        # Flipshope redirect fallback
         if "flipshope.com/redirect" in final_url:
             if "/7" in final_url:
                 return "myntra"
@@ -146,27 +146,46 @@ class DealScraper:
 
             self.driver.switch_to.window(self.driver.window_handles[1])
             time.sleep(2)
-
             url = self.driver.current_url
-
             self.driver.close()
             self.driver.switch_to.window(self.driver.window_handles[0])
 
             return url if url.startswith("http") else ""
-        except:
+        except Exception as e:
+            print("⚠ link error:", e)
             return ""
 
     # ---------------- SCRAPER ----------------
     def scrape(self):
         print("🔄 Loading FlipShope...")
         self.driver.get("https://flipshope.com/")
-        time.sleep(5)
 
-        for _ in range(6):
+        # Wait until grid container appears (important for GitHub Actions)
+        try:
+            WebDriverWait(self.driver, 30).until(
+                lambda d: d.find_elements(
+                    By.CSS_SELECTOR, "div.RecentPriceDropGridContainer > div"
+                )
+            )
+        except TimeoutException:
+            print("⚠ Grid container did not load in time")
+            return []
+
+        # Progressive scroll – wait for more boxes to load
+        last_count = 0
+        for _ in range(8):
             self.driver.execute_script(
                 "window.scrollTo(0, document.body.scrollHeight)"
             )
-            time.sleep(1)
+            time.sleep(1.5)
+            boxes = self.driver.find_elements(
+                By.CSS_SELECTOR, "div.RecentPriceDropGridContainer > div"
+            )
+            if len(boxes) > last_count:
+                last_count = len(boxes)
+            else:
+                # no new boxes loaded, break early
+                break
 
         boxes = self.driver.find_elements(
             By.CSS_SELECTOR, "div.RecentPriceDropGridContainer > div"
@@ -217,10 +236,10 @@ class DealScraper:
 
 
 def main():
-    bot = DealScraper()
-    deals = bot.scrape()
-    bot.save_raw_only(deals)
-    bot.close()
+        bot = DealScraper()
+        deals = bot.scrape()
+        bot.save_raw_only(deals)
+        bot.close()
 
 
 if __name__ == "__main__":
