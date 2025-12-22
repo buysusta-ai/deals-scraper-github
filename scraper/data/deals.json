@@ -1,5 +1,137 @@
 [
   {
+    "id": "fe99ab5e8d25",
+    "title": "TY BoutiqueCarved Bamboo Bangle",
+    "image": "https://m.media-amazon.com/images/I/419JhfnsHmL._SY300_SX300_QL70_ML2_.jpg",
+    "price": "₹299",
+    "mrp": "₹750",
+    "discount": "",
+    "platform": "amazon",
+    "original_link": "https://www.amazon.in/dp/B00O8U20CE?tag=buysasta0103-21",
+    "timestamp": "2025-12-22T04:15:01.834557Z"
+  },
+  {
+    "id": "d2ed2d72ce4b",
+    "title": "Mangalam Camphor Tablet Jar (500 gm X Pack of 1)",
+    "image": "https://m.media-amazon.com/images/I/41Pwm8E602L._SY300_SX300_QL70_ML2_.jpg",
+    "price": "₹599",
+    "mrp": "₹1200",
+    "discount": "",
+    "platform": "amazon",
+    "original_link": "https://www.amazon.in/dp/B0BCGG3T2F?tag=buysasta0103-21",
+    "timestamp": "2025-12-22T04:15:02.747892Z"
+  },
+  {
+    "id": "6a1c9b09abbc",
+    "title": "SAMISHA 3Pcs Hair Removal Powder-Rose Water & Aloe Vera Gel Combo",
+    "image": "http://assets.myntassets.com/assets/images/26198490/2023/12/2/3efecf2f-b516-4aa7-a3f5-aead465f988b1701499746905ShavingandHairRemoval1.jpg",
+    "price": "₹699",
+    "mrp": "₹1323",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/26198490/buy",
+    "timestamp": "2025-12-22T04:15:03.522088Z"
+  },
+  {
+    "id": "1c3ae2d52630",
+    "title": "Bath & Body Works Dressed In White Long Lasting Eau de Parfum - 100ml",
+    "image": "http://assets.myntassets.com/assets/images/31908444/2024/12/13/be667ed1-0e12-4762-8f64-4aa76f7167291734078698467-Bath--Body-Works-Dressed-In-White-Eau-de-Parfum-541734078698-1.jpg",
+    "price": "₹2800",
+    "mrp": "₹6999",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/31908444/buy",
+    "timestamp": "2025-12-22T04:15:04.346568Z"
+  },
+  {
+    "id": "1192fe1c908f",
+    "title": "Bath & Body Works First Sight Long Lasting Cologne - 100ml",
+    "image": "http://assets.myntassets.com/assets/images/31908438/2024/12/13/2c15c60d-9a00-4a89-8ad8-44afad16c1af1734078694179-Bath--Body-Works-First-Sight-Cologne-1781734078694034-1.jpg",
+    "price": "₹2600",
+    "mrp": "₹6499",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/31908438/buy",
+    "timestamp": "2025-12-22T04:15:05.271379Z"
+  },
+  {
+    "id": "95a40bf59237",
+    "title": "Bath & Body Works Men Long Lasting Graphite Cologne - 100 ml",
+    "image": "http://assets.myntassets.com/assets/images/26379746/2023/12/13/55542869-e54a-469b-a326-0ccfcdc64ba01702445828151BeautyGiftSetBathBodyWorksWomenHandCreamBathBodyWorksWomenBe1.jpg",
+    "price": "₹2599",
+    "mrp": "₹6499",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/26379746/buy",
+    "timestamp": "2025-12-22T04:15:06.054214Z"
+  },
+  {
+    "id": "a2d7f9cc104c",
+    "title": "Bath & Body Works Women Gingham Glow Eau De Parfum - 75ml",
+    "image": "http://assets.myntassets.com/assets/images/2025/JANUARY/3/0lvQELBV_b83cd4ed02be4a7f84343fa8135adff8.jpg",
+    "price": "₹2800",
+    "mrp": "₹6999",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/32093833/buy",
+    "timestamp": "2025-12-22T04:15:06.870078Z"
+  },
+  {
+    "id": "6c9aec459f24",
+    "title": "Bath & Body Works Women Champagne Toast Eau de Parfum - 50ml",
+    "image": "http://assets.myntassets.com/assets/images/2025/MARCH/7/IJDTrwwi_68270984b84e4141b920c5d828d69b94.jpg",
+    "price": "₹3000",
+    "mrp": "₹7499",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/33044978/buy",
+    "timestamp": "2025-12-22T04:15:07.654835Z"
+  },
+  {
+    "id": "261adb29be39",
+    "title": "Bath & Body Works Men Rouge Rebel Cologne - 100ml",
+    "image": "http://assets.myntassets.com/assets/images/2025/JUNE/4/f2thurny_c07bd4edc5cb4542a401bf4686a1916f.jpg",
+    "price": "₹1999",
+    "mrp": "₹4999",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/34732910/buy",
+    "timestamp": "2025-12-22T04:15:07.924243Z"
+  },
+  {
+    "id": "e15feef95dc4",
+    "title": "Bath & Body Works Men Beyond Savvy Cologne - 100ml",
+    "image": "http://assets.myntassets.com/assets/images/2025/AUGUST/5/AuRiWr6o_5a4b74bda5574d9e88925a979d910800.jpg",
+    "price": "₹2000",
+    "mrp": "₹4999",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/36210521/buy",
+    "timestamp": "2025-12-22T04:15:08.870503Z"
+  },
+  {
+    "id": "a51b347daabb",
+    "title": "Bath & Body Works Men Glory Cologne - 100ml",
+    "image": "http://assets.myntassets.com/assets/images/2025/JUNE/4/MYGXOCNK_65cfdc76ea374d66bcdd235ffd880bcf.jpg",
+    "price": "₹1999",
+    "mrp": "₹4999",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/34732922/buy",
+    "timestamp": "2025-12-22T04:15:09.829702Z"
+  },
+  {
+    "id": "ff88d315441e",
+    "title": "Bath & Body Works Mens Gingham Hero Cologne - 100ml",
+    "image": "http://assets.myntassets.com/assets/images/2024/DECEMBER/19/F1M5qZUI_ea9b98fccb6349c9bc53c78470edf361.jpg",
+    "price": "₹2600",
+    "mrp": "₹6499",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/31908440/buy",
+    "timestamp": "2025-12-22T04:15:10.634232Z"
+  },
+  {
     "id": "dddf0a68db7a",
     "title": "Nivia Flash 2.0 Badminton Shoes for Men | Your Go-to Shoe for Pickleball, Padel, and All Court Sports | Badminton Sports Shoes | (Blue/White/Sky Blue)",
     "image": "https://m.media-amazon.com/images/I/4157ddMEWnL._SL500_.jpg",
