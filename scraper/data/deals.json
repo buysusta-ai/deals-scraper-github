@@ -1,5 +1,93 @@
 [
   {
+    "id": "7f838bf807a4",
+    "title": "Adidas Men's 4DFWD 4 Grey Running Shoes",
+    "image": "https://img.tatacliq.com/images/i26//437Wx649H/MP000000025621982_437Wx649H_202507282321591.jpeg",
+    "price": "₹8799",
+    "mrp": "₹21999",
+    "discount": "",
+    "platform": "ajio",
+    "original_link": "https://www.ajio.com/p/mp000000025621999",
+    "timestamp": "2025-12-24T16:46:17.489211Z"
+  },
+  {
+    "id": "fc0afb49bce3",
+    "title": "Men Green Solid Puffer Jacket",
+    "image": "http://assets.myntassets.com/assets/images/12970032/2024/11/20/3fb7e803-dcb8-47f0-9862-50240044bbd31732093928735-LOCOMOTIVE-Men-Green-Solid-Puffer-Jacket-321732093928090-1.jpg",
+    "price": "₹499",
+    "mrp": "₹4049",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/12970032/buy",
+    "timestamp": "2025-12-24T16:46:18.459557Z"
+  },
+  {
+    "id": "183e9786980d",
+    "title": "Men Olive Green Solid Tailored Jacket",
+    "image": "http://assets.myntassets.com/assets/images/11024818/2025/2/15/a044a125-a8db-471e-b974-9b28510ab85c1739614478303-LOCOMOTIVE-Men-Olive-Green-Solid-Tailored-Jacket-11617396144-1.jpg",
+    "price": "₹499",
+    "mrp": "₹3649",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/11024818/buy",
+    "timestamp": "2025-12-24T16:46:19.324510Z"
+  },
+  {
+    "id": "7abb7116fe72",
+    "title": "Naturali Hairfall Arrest Shampoo with Red Onion & Bhringraj | Sulphate & Paraben-Free Shampoo | Controls Hairfall & Prevents Breakage | Strengthen Hair | 100 ml",
+    "image": "https://m.media-amazon.com/images/I/41C0N16h54L._SY300_SX300_QL70_ML2_.jpg",
+    "price": "₹99",
+    "mrp": "₹195",
+    "discount": "",
+    "platform": "amazon",
+    "original_link": "https://www.amazon.in/dp/B0FHK5DPJ6?tag=buysasta0103-21",
+    "timestamp": "2025-12-24T16:46:20.128606Z"
+  },
+  {
+    "id": "07add5789921",
+    "title": "BEARDO Bourbon Whisky Smoke Perfume For Men, 20Ml | Oriental, Woody, Leathery | Long Lasting Mens Perfume | Best Date Night Fragrance Body Spray For Men | Christmas Gift For Men | Gift For Friends",
+    "image": "https://m.media-amazon.com/images/I/31waJ8C+cKL._SY300_SX300_QL70_ML2_.jpg",
+    "price": "₹175",
+    "mrp": "₹349",
+    "discount": "",
+    "platform": "amazon",
+    "original_link": "https://www.amazon.in/dp/B0CVBDXQGX?tag=buysasta0103-21",
+    "timestamp": "2025-12-24T16:46:21.094780Z"
+  },
+  {
+    "id": "992e65a85405",
+    "title": "Athom Living Peach Blue 3 Pieces 400 GSM Cotton Bath Towels",
+    "image": "http://assets.myntassets.com/assets/images/27414260/2024/3/4/7ba25a41-9606-4691-ab32-8b0362f030d41709530971568-Athom-Living-Peach-Blue-3-Pieces-400-GSM-Cotton-Bath-Towels--1.jpg",
+    "price": "₹934",
+    "mrp": "₹3897",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/27414260/buy",
+    "timestamp": "2025-12-24T16:46:22.107351Z"
+  },
+  {
+    "id": "dfa323effb93",
+    "title": "DURACELL AAA Battery(Pack of 10)",
+    "image": "https://rukminim1.flixcart.com/image/400/400/koynr0w0/battery/alkaline-battery/4/7/z/aaa-duracell-original-imag3azfsuzf3wnc.jpeg?q=90",
+    "price": "₹178",
+    "mrp": "₹350",
+    "discount": "",
+    "platform": "flipkart",
+    "original_link": "https://www.flipkart.com/p/p/item?pid=ACCG39JBG34UUR6Z",
+    "timestamp": "2025-12-24T16:46:23.055064Z"
+  },
+  {
+    "id": "f9009b0a7c44",
+    "title": "INTIMIFY 100% Pure & Natural Rosemary Essential Oil, Hair Growth, Skin Care, Aromatherapy",
+    "image": "https://rukminim1.flixcart.com/image/400/400/xif0q/bath-essential-oil/q/2/b/30-100-pure-natural-rosemary-essential-oil-hair-growth-skin-care-original-imagxfzrxak9jvwg.jpeg?q=90",
+    "price": "₹118",
+    "mrp": "₹510",
+    "discount": "",
+    "platform": "flipkart",
+    "original_link": "https://www.flipkart.com/p/p/item?pid=BEOGXFZTTFWFZ7D7",
+    "timestamp": "2025-12-24T16:46:24.029914Z"
+  },
+  {
     "id": "9a5d347bdf2f",
     "title": "Jompers Abstract Embroidered Mandarin Collar Long Sleeves Zari Kurta",
     "image": "http://assets.myntassets.com/assets/images/2024/AUGUST/20/8vQf1sL8_c98ebc0804c949f9bfa5a8edc6b38cf9.jpg",
@@ -8,7 +96,7 @@
     "discount": "",
     "platform": "myntra",
     "original_link": "https://www.myntra.com/product/p/p/28500460/buy",
-    "timestamp": "2025-12-24T15:41:05.851324Z"
+    "timestamp": "2025-12-24T16:46:24.856264Z"
   },
   {
     "id": "019e77d9b6ef",
@@ -19,7 +107,7 @@
     "discount": "",
     "platform": "myntra",
     "original_link": "https://www.myntra.com/product/p/p/36548579/buy",
-    "timestamp": "2025-12-24T15:41:06.868736Z"
+    "timestamp": "2025-12-24T16:46:25.138584Z"
   },
   {
     "id": "6e9def6479cb",
@@ -30,7 +118,7 @@
     "discount": "",
     "platform": "myntra",
     "original_link": "https://www.myntra.com/product/p/p/36348856/buy",
-    "timestamp": "2025-12-24T15:41:07.750895Z"
+    "timestamp": "2025-12-24T16:46:25.991339Z"
   },
   {
     "id": "28cf14bee238",
@@ -41,7 +129,7 @@
     "discount": "",
     "platform": "myntra",
     "original_link": "https://www.myntra.com/product/p/p/10641922/buy",
-    "timestamp": "2025-12-24T15:41:08.740007Z"
+    "timestamp": "2025-12-24T16:46:27.009437Z"
   },
   {
     "id": "60ba70e4632b",
@@ -3210,93 +3298,5 @@
     "platform": "amazon",
     "original_link": "https://www.amazon.in/dp/B0CVH5XZ3H?tag=buysasta0103-21",
     "timestamp": "2025-12-21T14:39:27.922157Z"
-  },
-  {
-    "id": "4e8ab1a508ea",
-    "title": "McAfee Mobile Security 1 Device, 1 Year- Product Key (Activation Key Card)",
-    "image": "https://m.media-amazon.com/images/I/51hOjkALqQL._SY300_SX300_QL70_ML2_.jpg",
-    "price": "₹124",
-    "mrp": "₹399",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B01N6B67AV?tag=buysasta0103-21",
-    "timestamp": "2025-12-21T14:39:28.751963Z"
-  },
-  {
-    "id": "5c9855c4c5e7",
-    "title": "Homesake Yellow Flower Shape String Lights",
-    "image": "http://assets.myntassets.com/assets/images/2024/SEPTEMBER/18/qk6ptROP_6c66945d34dd472a8d9a32e0216fb6a6.jpg",
-    "price": "₹144",
-    "mrp": "₹1200",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/31027950/buy",
-    "timestamp": "2025-12-21T14:39:29.615828Z"
-  },
-  {
-    "id": "08191f67c0f4",
-    "title": "Snitch Men Relaxed Fit Textured Cuban Collar Casual Shirt",
-    "image": "http://assets.myntassets.com/assets/images/2025/JUNE/14/0YbOgH6P_371ca42f72f14b88abade53e5c729988.jpg",
-    "price": "₹565",
-    "mrp": "₹1199",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/34939260/buy",
-    "timestamp": "2025-12-21T14:39:30.421463Z"
-  },
-  {
-    "id": "66147c096613",
-    "title": "ASOS DESIGN Men Regular Fit Biker Jacket",
-    "image": "https://assets.ajio.com/medias/sys_master/root/20240822/Fll6/66c754d26f60443f3120eba7/-473Wx593H-469631534-brown-MODEL.jpg",
-    "price": "₹1053",
-    "mrp": "₹5266",
-    "discount": "",
-    "platform": "https://flipshope.com/redirect/469631534_brown/9?source=web_homepage",
-    "original_link": "unknown",
-    "timestamp": "2025-12-21T14:39:31.226790Z"
-  },
-  {
-    "id": "72f99bab2a4b",
-    "title": "ASOS DESIGN Men Oversized Cord Collar Harrington Jacket",
-    "image": "https://assets.ajio.com/medias/sys_master/root/20241017/c2Bh/67112290260f9c41e8807970/-473Wx593H-469647823-brown-MODEL.jpg",
-    "price": "₹1369",
-    "mrp": "₹6847",
-    "discount": "",
-    "platform": "https://flipshope.com/redirect/469647823_brown/9?source=web_homepage",
-    "original_link": "unknown",
-    "timestamp": "2025-12-21T14:39:32.044536Z"
-  },
-  {
-    "id": "9dca6d7c29e2",
-    "title": "Altheory by AZORTE Zip-Front Regular Fit Hooded Jacket",
-    "image": "https://assets.ajio.com/medias/sys_master/root/20230914/q455/65032abdafa4cf41f5e53228/-473Wx593H-443013412-brown-MODEL.jpg",
-    "price": "₹525",
-    "mrp": "₹3499",
-    "discount": "",
-    "platform": "https://flipshope.com/redirect/443013412_brown/9?source=web_homepage",
-    "original_link": "unknown",
-    "timestamp": "2025-12-21T14:39:32.844689Z"
-  },
-  {
-    "id": "e6b94fc8be7c",
-    "title": "CoreTrim Sweat Slim Belt for Men & Women | Neoprene Tummy Trimmer Belt for Fat Loss, Stomach Shaping & Workout Support | Adjustable Waist Trainer Sauna Belt for Gym, Yoga & Daily Use",
-    "image": "https://m.media-amazon.com/images/I/51p0-0yud4L._SX342_SY445_QL70_ML2_.jpg",
-    "price": "₹188",
-    "mrp": "₹1499",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B0FGD8MBNZ?tag=buysasta0103-21",
-    "timestamp": "2025-12-21T14:39:33.659147Z"
-  },
-  {
-    "id": "b9504f66eba3",
-    "title": "Snitch Men Printed Polo Collar Boxy T-shirt",
-    "image": "http://assets.myntassets.com/assets/images/2025/FEBRUARY/19/8ngR4V2q_2795cbe92b3c4d0a96ca44421a183af7.jpg",
-    "price": "₹498",
-    "mrp": "₹1299",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/32843601/buy",
-    "timestamp": "2025-12-21T14:39:34.612638Z"
   }
 ]
