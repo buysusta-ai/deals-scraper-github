@@ -1,5 +1,115 @@
 [
   {
+    "id": "23ebce65be01",
+    "title": "Bershka Unisex Embroidered Scarf With Frayed Border",
+    "image": "http://assets.myntassets.com/assets/images/2025/SEPTEMBER/12/rHb5TzvN_0abff3de4c134fc781785432d8a0c01b.jpg",
+    "price": "₹870",
+    "mrp": "₹1750",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/36900936/buy",
+    "timestamp": "2025-12-25T14:41:46.178959Z"
+  },
+  {
+    "id": "be8c10001308",
+    "title": "HOP HEAD Unisex Cargo Shorts",
+    "image": "http://assets.myntassets.com/assets/images/2025/MAY/7/h2paFdQP_fa8fb0c7020442d6ae2bd0e930460d9f.jpg",
+    "price": "₹799",
+    "mrp": "₹1599",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/34013281/buy",
+    "timestamp": "2025-12-25T14:41:47.174386Z"
+  },
+  {
+    "id": "5b520e36fc7e",
+    "title": "Teak Finish Wooden Home Temple By Heartily",
+    "image": "https://ii3.pepperfry.com/media/catalog/product/t/e/494x544/teak-finish-engineering-wood-home-temple-by-heartily-teak-finish-engineering-wood-home-temple-by-hea-pevula.jpg",
+    "price": "₹749",
+    "mrp": "₹1499",
+    "discount": "",
+    "platform": "https://flipshope.com/redirect/2029518/10?source=web_homepage",
+    "original_link": "unknown",
+    "timestamp": "2025-12-25T14:41:48.178109Z"
+  },
+  {
+    "id": "c6f8e9eefd72",
+    "title": "Flipkart SmartBuy Stainless Steel Serving Bowl Flora Microwave(Pack of 3, Beige)",
+    "image": "https://rukminim1.flixcart.com/image/400/400/l1tmf0w0/bowl/y/t/e/na-3-fkbs-jen-128-flipkart-smartbuy-original-imagdantgargze9v.jpeg?q=90",
+    "price": "₹286",
+    "mrp": "₹1395",
+    "discount": "",
+    "platform": "flipkart",
+    "original_link": "https://www.flipkart.com/p/p/item?pid=BWLGDANTMUCJHBTV",
+    "timestamp": "2025-12-25T14:41:49.020582Z"
+  },
+  {
+    "id": "b09d292f7a1f",
+    "title": "HEZKRT Rubber Bathroom Mat (Blue, Medium)",
+    "image": "https://rukminim1.flixcart.com/image/400/400/xif0q/mat/8/l/a/medium-blue-xz12-1-blue-xz12-vamigo-original-imah82xr5hdqq2hk.jpeg?q=90",
+    "price": "₹84",
+    "mrp": "₹499",
+    "discount": "",
+    "platform": "flipkart",
+    "original_link": "https://www.flipkart.com/p/p/item?pid=MATH26U9XGYSGY7T",
+    "timestamp": "2025-12-25T14:41:50.005018Z"
+  },
+  {
+    "id": "2ec72c5a6c5a",
+    "title": "chapo Stainless Steel Soup and Juice Strainer, 14cm (Silver) Collapsible Strainer(Silver Pack of 1)",
+    "image": "https://rukminim1.flixcart.com/image/400/400/kcgk1ow0/colander-sieve-strainer/a/r/v/soup-and-juice-strainer-28cm-stainless-steel-dube-original-imaftkafgskhzn4y.jpeg?q=90",
+    "price": "₹135",
+    "mrp": "₹499",
+    "discount": "",
+    "platform": "flipkart",
+    "original_link": "https://www.flipkart.com/p/p/item?pid=CSSG3SYE4YXYVWF9",
+    "timestamp": "2025-12-25T14:41:50.846462Z"
+  },
+  {
+    "id": "8b108c730aeb",
+    "title": "Men Striped Regular Fit Shorts",
+    "image": "https://assets.ajio.com/medias/sys_master/root/20250623/66Bj/685915720f920c69cc443210/-473Wx593H-443078519-darkgrey-MODEL.jpg",
+    "price": "₹254",
+    "mrp": "₹499",
+    "discount": "",
+    "platform": "https://flipshope.com/redirect/443078519_darkgrey/9?source=web_homepage",
+    "original_link": "unknown",
+    "timestamp": "2025-12-25T14:41:51.834340Z"
+  },
+  {
+    "id": "582f76350ef3",
+    "title": "NETPLAY Men Ultimate Striped Slim Fit Polo T-Shirt",
+    "image": "https://assets.ajio.com/medias/sys_master/root/20250708/vxyL/686d0990b13fc54edd06351e/-473Wx593H-443083803-navy-MODEL.jpg",
+    "price": "₹305",
+    "mrp": "₹599",
+    "discount": "",
+    "platform": "https://flipshope.com/redirect/443083803_navy/9?source=web_homepage",
+    "original_link": "unknown",
+    "timestamp": "2025-12-25T14:41:52.684477Z"
+  },
+  {
+    "id": "43b114183372",
+    "title": "NETPLAY Men Slim Fit Polo T-Shirt",
+    "image": "https://assets.ajio.com/medias/sys_master/root1/20250731/8P3P/688af2b58bfb9009ac4e893a/-473Wx593H-443081641-green-MODEL.jpg",
+    "price": "₹254",
+    "mrp": "₹499",
+    "discount": "",
+    "platform": "https://flipshope.com/redirect/443081641_green/9?source=web_homepage",
+    "original_link": "unknown",
+    "timestamp": "2025-12-25T14:41:53.525222Z"
+  },
+  {
+    "id": "950d389234cc",
+    "title": "Men Slim Fit Polo T-Shirt",
+    "image": "https://assets.ajio.com/medias/sys_master/root/20250704/ekeW/6867bd21e590ff066e23c496/-473Wx593H-443081641-orange-MODEL.jpg",
+    "price": "₹254",
+    "mrp": "₹499",
+    "discount": "",
+    "platform": "https://flipshope.com/redirect/443081641_orange/9?source=web_homepage",
+    "original_link": "unknown",
+    "timestamp": "2025-12-25T14:41:54.484704Z"
+  },
+  {
     "id": "8c236d0e8ec7",
     "title": "TECHLOCKER Win 11 Pro Online License Key Motherboard Bind (1 Users/PC, Lifetime Validity) 32/64 Bit | Unlimited Updates & Reinstallations | Quick Email Delivery",
     "image": "https://m.media-amazon.com/images/I/413BIT2PT1L._SY300_SX300_QL70_ML2_.jpg",
@@ -8,7 +118,7 @@
     "discount": "",
     "platform": "amazon",
     "original_link": "https://www.amazon.in/dp/B0FR17SMF2?tag=buysasta0103-21",
-    "timestamp": "2025-12-25T13:47:35.166421Z"
+    "timestamp": "2025-12-25T14:41:56.536299Z"
   },
   {
     "id": "54c18c65c9e2",
@@ -3188,115 +3298,5 @@
     "platform": "flipkart",
     "original_link": "https://www.flipkart.com/p/p/item?pid=MTYHFCNJSZKY8ZX3",
     "timestamp": "2025-12-22T09:47:29.756937Z"
-  },
-  {
-    "id": "6e90d4a36d20",
-    "title": "Aksharveda Pooja Thali Set Brass(Gold)",
-    "image": "https://rukminim1.flixcart.com/image/400/400/xif0q/pooja-thali-set/m/g/f/yes-av-bp-506-aksharveda-original-imahae3vscphh3nh.jpeg?q=90",
-    "price": "₹618",
-    "mrp": "₹950",
-    "discount": "",
-    "platform": "flipkart",
-    "original_link": "https://www.flipkart.com/p/p/item?pid=PJTH7F43YBHSRGPM",
-    "timestamp": "2025-12-22T09:47:30.771712Z"
-  },
-  {
-    "id": "62557accfb36",
-    "title": "Verbatim Blu-Ray BD-R DL 50GB 5Pk 6X (43748)",
-    "image": "https://m.media-amazon.com/images/I/41itDjqIlQL._SX300_SY300_QL70_ML2_.jpg",
-    "price": "₹2409",
-    "mrp": "₹3250",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B004JVBPUA?tag=buysasta0103-21",
-    "timestamp": "2025-12-22T09:47:31.689810Z"
-  },
-  {
-    "id": "bacd678e65a2",
-    "title": "Baby Moo Infants Pack of 2 Self Design Woollen Turban Caps",
-    "image": "http://assets.myntassets.com/assets/images/28657820/2024/4/3/38bf138b-61aa-4ee0-aa70-e80325cf12031712157189092Caps1.jpg",
-    "price": "₹308",
-    "mrp": "₹699",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/28657820/buy",
-    "timestamp": "2025-12-22T09:47:32.612646Z"
-  },
-  {
-    "id": "bef4d7c49952",
-    "title": "Baby Moo Unisex Kids 3D Ear With Tie Knot Beanie",
-    "image": "http://assets.myntassets.com/assets/images/21504916/2023/1/11/ead2f922-3274-4278-9aaa-97a683a2178d1673430296908BabyMooUnisexKidsBrownYellowBeanie1.jpg",
-    "price": "₹318",
-    "mrp": "₹599",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/21504916/buy",
-    "timestamp": "2025-12-22T09:47:33.402711Z"
-  },
-  {
-    "id": "749584626cba",
-    "title": "Baby Moo Kids Yellow Woollen Beanie",
-    "image": "http://assets.myntassets.com/assets/images/16694808/2022/1/5/2b1de9ba-0a32-4850-b7c5-a26ce356a38c1641384308965BabyMooUnisexKidsYellow1.jpg",
-    "price": "₹301",
-    "mrp": "₹599",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/16694808/buy",
-    "timestamp": "2025-12-22T09:47:34.215260Z"
-  },
-  {
-    "id": "0a44359bae48",
-    "title": "Classic XXXL Leatherette Bean Bag with Beans in Brown Colour",
-    "image": "https://ii3.pepperfry.com/media/catalog/product/c/l/494x544/classic-xxxl-leatherette-bean-bag-with-beans-in-brown-colour-classic-xxxl-leatherette-bean-bag-with--7lzigu.jpg",
-    "price": "₹1199",
-    "mrp": "₹2799",
-    "discount": "",
-    "platform": "https://flipshope.com/redirect/1654146/10?source=web_homepage",
-    "original_link": "unknown",
-    "timestamp": "2025-12-22T09:47:35.179799Z"
-  },
-  {
-    "id": "33dfb2b34d96",
-    "title": "chapo 4589785 Rolling Pizza Cutter(Stainless Steel)",
-    "image": "https://rukminim1.flixcart.com/image/400/400/kcxpbww0/pizza-cutter/n/v/b/pizza-cutter-naredi-enterprises-original-imaftydwkzegfrhf.jpeg?q=90",
-    "price": "₹118",
-    "mrp": "₹299",
-    "discount": "",
-    "platform": "flipkart",
-    "original_link": "https://www.flipkart.com/p/p/item?pid=PACGHKB4JW2WG9DH",
-    "timestamp": "2025-12-22T09:47:36.034839Z"
-  },
-  {
-    "id": "945eb539b204",
-    "title": "KALINI Embroidered Art Silk Unstitched Dress Material",
-    "image": "http://assets.myntassets.com/assets/images/24514784/2023/8/16/16fc3215-2a03-47fb-ac7c-b43383f0b2b61692192495774PinkEmbroideredUnstitchedDressMaterial1.jpg",
-    "price": "₹441",
-    "mrp": "₹2499",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/24514784/buy",
-    "timestamp": "2025-12-22T09:47:36.995422Z"
-  },
-  {
-    "id": "3941351e1ed5",
-    "title": "Kosmo Hover 3 Door Wardrobe in Lyon Walnut & Natural Wenge Finish With Loft & Mirror & Drawer",
-    "image": "https://ii3.pepperfry.com/media/catalog/product/k/o/494x544/kosmo-hover-solid-wood-3-door-wardrobe-mirror-with-loft-in-lyon-walnut---natural-wenge-finish-kosmo--8nbzoy.jpg",
-    "price": "₹22424",
-    "mrp": "₹62999",
-    "discount": "",
-    "platform": "https://flipshope.com/redirect/2229474/10?source=web_homepage",
-    "original_link": "unknown",
-    "timestamp": "2025-12-22T09:47:37.898812Z"
-  },
-  {
-    "id": "18d4a349a96c",
-    "title": "Kosmo Harmony 3 Door Wardrobe in Natural Teak Finish With Locker & Drawer",
-    "image": "https://ii3.pepperfry.com/media/catalog/product/k/o/494x544/kosmo-harmony-3-door-wardrobe-in-natural-teak-finish-kosmo-harmony-3-door-wardrobe-in-natural-teak-f-9ctywl.jpg",
-    "price": "₹23999",
-    "mrp": "₹53199",
-    "discount": "",
-    "platform": "https://flipshope.com/redirect/2079102/10?source=web_homepage",
-    "original_link": "unknown",
-    "timestamp": "2025-12-22T09:47:38.869472Z"
   }
 ]
