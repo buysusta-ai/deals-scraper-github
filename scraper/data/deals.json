@@ -1,5 +1,27 @@
 [
   {
+    "id": "f5e5d88d496b",
+    "title": "Slim Fit Tartan Checked Formal Shirt",
+    "image": "http://assets.myntassets.com/assets/images/25078722/2023/10/4/14cf88a5-4c6d-4e37-8992-b478af7b1c401696406634197FUBARMenMulticolouredSlimFitTartanChecksOpaqueCheckedFormalS1.jpg",
+    "price": "₹201",
+    "mrp": "₹1999",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/25078722/buy",
+    "timestamp": "2025-12-26T15:40:30.404030Z"
+  },
+  {
+    "id": "67507ac132b8",
+    "title": "Nillkin Tempered Glass for Xiaomi Redmi Note 12 Turbo/Poco F5 (6.67&#34; Inch) Amazing H+ Pro Explosion Proof Screen Protect",
+    "image": "https://m.media-amazon.com/images/I/31+t6fdsIqL._SY300_SX300_QL70_ML2_.jpg",
+    "price": "₹519",
+    "mrp": "₹2499",
+    "discount": "",
+    "platform": "amazon",
+    "original_link": "https://www.amazon.in/dp/B0C69K7B61?tag=buysasta0103-21",
+    "timestamp": "2025-12-26T15:40:31.326219Z"
+  },
+  {
     "id": "87b1cdc90978",
     "title": "USB C Headphones for iPhone 16/16 Plus/16 Pro/16 Pro Max USB C Earphones with Mic Volume Control Wired Earbuds USB Type C Headphones for iPhone 15 Pro Max Plus iPad Pro Galaxy S25/S24 Ultra Pixel 9",
     "image": "https://m.media-amazon.com/images/I/31Yp6+T-hYL._SY300_SX300_QL70_ML2_.jpg",
@@ -8,7 +30,7 @@
     "discount": "",
     "platform": "amazon",
     "original_link": "https://www.amazon.in/dp/B0FP2B7D3R?tag=buysasta0103-21",
-    "timestamp": "2025-12-26T14:42:25.595254Z"
+    "timestamp": "2025-12-26T15:40:32.331019Z"
   },
   {
     "id": "7c4b6149551b",
@@ -19,7 +41,7 @@
     "discount": "",
     "platform": "amazon",
     "original_link": "https://www.amazon.in/dp/B01M67ZNX8?tag=buysasta0103-21",
-    "timestamp": "2025-12-26T14:42:25.874690Z"
+    "timestamp": "2025-12-26T15:40:33.343717Z"
   },
   {
     "id": "d0c08f448f88",
@@ -30,7 +52,7 @@
     "discount": "",
     "platform": "amazon",
     "original_link": "https://www.amazon.in/dp/B0FXTSQRP6?tag=buysasta0103-21",
-    "timestamp": "2025-12-26T14:42:26.801059Z"
+    "timestamp": "2025-12-26T15:40:34.280510Z"
   },
   {
     "id": "77aae70dd628",
@@ -41,7 +63,7 @@
     "discount": "",
     "platform": "https://flipshope.com/redirect/612141921/5?source=web_homepage",
     "original_link": "unknown",
-    "timestamp": "2025-12-26T14:42:27.722052Z"
+    "timestamp": "2025-12-26T15:40:35.365824Z"
   },
   {
     "id": "f37d342a313c",
@@ -52,7 +74,7 @@
     "discount": "",
     "platform": "https://flipshope.com/redirect/443047219_mediumblue/9?source=web_homepage",
     "original_link": "unknown",
-    "timestamp": "2025-12-26T14:42:28.613568Z"
+    "timestamp": "2025-12-26T15:40:36.270101Z"
   },
   {
     "id": "592305a064f0",
@@ -63,7 +85,7 @@
     "discount": "",
     "platform": "https://flipshope.com/redirect/443050166_offwhite/9?source=web_homepage",
     "original_link": "unknown",
-    "timestamp": "2025-12-26T14:42:29.566290Z"
+    "timestamp": "2025-12-26T15:40:37.168562Z"
   },
   {
     "id": "509a28521fdb",
@@ -74,7 +96,7 @@
     "discount": "",
     "platform": "https://flipshope.com/redirect/443050151_ltgreen/9?source=web_homepage",
     "original_link": "unknown",
-    "timestamp": "2025-12-26T14:42:30.355470Z"
+    "timestamp": "2025-12-26T15:40:37.427116Z"
   },
   {
     "id": "ec5cc08ea1a4",
@@ -85,7 +107,7 @@
     "discount": "",
     "platform": "https://flipshope.com/redirect/443053414_beige/9?source=web_homepage",
     "original_link": "unknown",
-    "timestamp": "2025-12-26T14:42:31.259324Z"
+    "timestamp": "2025-12-26T15:40:38.416134Z"
   },
   {
     "id": "5b3e7e956ec0",
@@ -96,7 +118,7 @@
     "discount": "",
     "platform": "https://flipshope.com/redirect/443020951_peach/9?source=web_homepage",
     "original_link": "unknown",
-    "timestamp": "2025-12-26T14:42:31.520320Z"
+    "timestamp": "2025-12-26T15:40:38.678184Z"
   },
   {
     "id": "d4667295a3a6",
@@ -107,7 +129,7 @@
     "discount": "",
     "platform": "myntra",
     "original_link": "https://www.myntra.com/product/p/p/31417946/buy",
-    "timestamp": "2025-12-26T14:42:32.438296Z"
+    "timestamp": "2025-12-26T15:40:39.804799Z"
   },
   {
     "id": "3cc1c7479f2e",
@@ -3276,27 +3298,5 @@
     "platform": "flipkart",
     "original_link": "https://www.flipkart.com/p/p/item?pid=KIMGGKQQDEHRPB2G",
     "timestamp": "2025-12-23T15:41:53.627278Z"
-  },
-  {
-    "id": "b678e072858a",
-    "title": "YELONA 3 Pc Stainless Steel Knife Set Printed SS Ultra Sharp Butcher, Meat, Pairing, Vegetable for Kitchen",
-    "image": "https://rukminim1.flixcart.com/image/400/400/xif0q/shopsy-kitchen-knife/m/s/l/1-chef-knifes-for-chopping-vegetables-fruits-multipurpose-knife-original-imahe4bydbhhubsa.jpeg?q=90",
-    "price": "₹90",
-    "mrp": "₹399",
-    "discount": "",
-    "platform": "flipkart",
-    "original_link": "https://www.flipkart.com/p/p/item?pid=KHKGS26GZQ3ZXZ2Z",
-    "timestamp": "2025-12-23T15:41:54.417918Z"
-  },
-  {
-    "id": "f0ae3dfd792b",
-    "title": "ThriveCo Rosemary Hair Conditioner For Voluminous Hair | Densifying & Stimulating Hair Growth | Promotes Hair Strength | With Pea Peptide & Caffeine | Paraben & Sulfate Free | For Men & Women | 250ml",
-    "image": "https://m.media-amazon.com/images/I/31HMvxUWgUL._SY300_SX300_QL70_ML2_.jpg",
-    "price": "₹131",
-    "mrp": "₹549",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B0CNH2CMV9?tag=buysasta0103-21",
-    "timestamp": "2025-12-23T15:41:55.248369Z"
   }
 ]
