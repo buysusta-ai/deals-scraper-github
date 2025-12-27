@@ -1,5 +1,93 @@
 [
   {
+    "id": "2d1add0dcb78",
+    "title": "Men Printed Slim Fit Sweatshirt",
+    "image": "https://assets.ajio.com/medias/sys_master/root/20241010/BVMC/6707d14bf9b8ef490babe46f/-473Wx593H-443280712-ltgreen-MODEL.jpg",
+    "price": "₹240",
+    "mrp": "₹799",
+    "discount": "",
+    "platform": "https://flipshope.com/redirect/443280712_ltgreen/9?source=web_homepage",
+    "original_link": "unknown",
+    "timestamp": "2025-12-27T14:39:58.939165Z"
+  },
+  {
+    "id": "94029ae54099",
+    "title": "Reebok Men Printed Casual Sports Sandals",
+    "image": "http://assets.myntassets.com/assets/images/2025/JUNE/17/2T19YPrb_c58db029b62d474b98e05b27fe72c858.jpg",
+    "price": "₹1539",
+    "mrp": "₹2799",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/34986659/buy",
+    "timestamp": "2025-12-27T14:39:59.873095Z"
+  },
+  {
+    "id": "2acfa0241413",
+    "title": "Reebok Ztaur Rbk Aero Sandal Men Sport Sandals",
+    "image": "http://assets.myntassets.com/assets/images/2025/JUNE/17/B5fEIUeb_b83610813c5b42f78f8f6b12426e511d.jpg",
+    "price": "₹1539",
+    "mrp": "₹2799",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/34986550/buy",
+    "timestamp": "2025-12-27T14:40:00.769636Z"
+  },
+  {
+    "id": "55323600b4b9",
+    "title": "9to5 Powerplay Priming Matte Lipstick 3.6g - Lasts 16hrs - Brown Walnut",
+    "image": "http://assets.myntassets.com/assets/images/2025/FEBRUARY/24/M5t34cZZ_86c4bb7ac5ef4a46b376e70b2a481859.jpg",
+    "price": "₹195",
+    "mrp": "₹650",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/14095308/buy",
+    "timestamp": "2025-12-27T14:40:01.041039Z"
+  },
+  {
+    "id": "7e7124a015bf",
+    "title": "9to5 Powerplay Priming Matte Lipstick, Lasts 16hrs, Cherry Chic, 3.6g",
+    "image": "http://assets.myntassets.com/assets/images/14095284/2024/3/8/127a267a-57e6-484c-baaf-04df8cb45a6f1709875664720-Lakme-9-to-5-Primer--Matte-Lip-Color---Cherry-Chic-802170987-1.jpg",
+    "price": "₹195",
+    "mrp": "₹650",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/14095284/buy",
+    "timestamp": "2025-12-27T14:40:03.908145Z"
+  },
+  {
+    "id": "6006a9e9a9de",
+    "title": "Lakme Cushion Matte Lipstick with French Rose Oil - Red Rose CR2",
+    "image": "http://assets.myntassets.com/assets/images/2024/AUGUST/16/WIhqseEe_518d59bf023c4108a11ed2702d202b18.jpg",
+    "price": "₹142",
+    "mrp": "₹375",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/13201788/buy",
+    "timestamp": "2025-12-27T14:40:05.329407Z"
+  },
+  {
+    "id": "606c5b944b53",
+    "title": "Lakme 9 to 5 Primer + Matte Lip Color - Coffee Command 3.6 g",
+    "image": "http://assets.myntassets.com/assets/images/14095336/2024/3/8/4845aeb7-e1f5-4085-af00-2e0c8f37e1161709875733831-Lakme-9-to-5-Primer--Matte-Lip-Color---Coffee-Command-36-g-2-1.jpg",
+    "price": "₹195",
+    "mrp": "₹650",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/14095336/buy",
+    "timestamp": "2025-12-27T14:40:05.591881Z"
+  },
+  {
+    "id": "b8db367f175d",
+    "title": "9to5 Powerplay Lasts 16hrs Priming Matte Lipstick - Blush Pink, 3.6g",
+    "image": "http://assets.myntassets.com/assets/images/14095354/2024/2/26/199cc398-cb81-4033-81c3-b0d44311417d1708946943295-Lakme-9-to-5-Primer--Matte-Lipstick-Blush-Pink-MP11-36717089-1.jpg",
+    "price": "₹195",
+    "mrp": "₹650",
+    "discount": "",
+    "platform": "myntra",
+    "original_link": "https://www.myntra.com/product/p/p/14095354/buy",
+    "timestamp": "2025-12-27T14:40:06.528960Z"
+  },
+  {
     "id": "5a35ce28eee4",
     "title": "Just Herbs 7 Days Face & Body Care Pack Skincare Essentials Combo Pack with Facewash | Honey Gel | Herbal Massage Cream | Anti Blemish Gel | Body Wash and Body Lotion Perfect for Gifting Travel Kit Set for Men",
     "image": "https://m.media-amazon.com/images/I/41gETQbC18L._SX342_SY445_QL70_ML2_.jpg",
@@ -3210,93 +3298,5 @@
     "platform": "amazon",
     "original_link": "https://www.amazon.in/dp/B0CTT6RK7T?tag=buysasta0103-21",
     "timestamp": "2025-12-24T14:41:53.920467Z"
-  },
-  {
-    "id": "26df60295818",
-    "title": "Being Human Men Pack Of 2 Striped Shoe Liners-Length Socks",
-    "image": "http://assets.myntassets.com/assets/images/2025/MARCH/5/4oAHvsXT_6a48d361ebba4e29949379cee12f172a.jpg",
-    "price": "₹124",
-    "mrp": "₹249",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/33068847/buy",
-    "timestamp": "2025-12-24T14:41:54.182836Z"
-  },
-  {
-    "id": "eea5ee87ebb3",
-    "title": "amazon basics Wired USB Mouse, 3-Button, 1000 DPI Optical Sensor, Plug & Play, for Windows/Mac",
-    "image": "https://m.media-amazon.com/images/I/31QrN9zMXEL._SY300_SX300_QL70_ML2_.jpg",
-    "price": "₹162",
-    "mrp": "₹919",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B0BT6ZYM1Q?tag=buysasta0103-21",
-    "timestamp": "2025-12-24T14:41:55.130602Z"
-  },
-  {
-    "id": "c477ee11fdbe",
-    "title": "Snitch Men Checked Spread Collar Casual Shirt",
-    "image": "http://assets.myntassets.com/assets/images/2025/AUGUST/21/13iaQaaR_c6f9210c7d8b42bbb00982b95c5a0348.jpg",
-    "price": "₹610",
-    "mrp": "₹1299",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/36488797/buy",
-    "timestamp": "2025-12-24T14:41:55.393111Z"
-  },
-  {
-    "id": "96e2ad182fec",
-    "title": "Snitch Men Smart Slim Fit Opaque Striped Casual Shirt",
-    "image": "http://assets.myntassets.com/assets/images/2025/FEBRUARY/19/EdHuOYYP_49b47c7e6d514710807356830ac1fba1.jpg",
-    "price": "₹610",
-    "mrp": "₹1299",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/32845410/buy",
-    "timestamp": "2025-12-24T14:41:56.225102Z"
-  },
-  {
-    "id": "409a3bc16332",
-    "title": "eCraftIndia Golden Merry Christmas Star| Christmas Tree Decoration Items| Ornaments Props| Gifts for Women Men Kids Girls",
-    "image": "https://m.media-amazon.com/images/I/41MxUOfJYQL._SY300_SX300_QL70_ML2_.jpg",
-    "price": "₹115",
-    "mrp": "₹999",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B0DLL57JFK?tag=buysasta0103-21",
-    "timestamp": "2025-12-24T14:41:56.481552Z"
-  },
-  {
-    "id": "b5629febd4c9",
-    "title": "Water-Proof Makeup Fixer | Waterproof, Transferproof, Smudgeproof | Long lasting Make-up Setting Spray | 130ml",
-    "image": "https://m.media-amazon.com/images/I/21QfMEggW6L._SY300_SX300_QL70_ML2_.jpg",
-    "price": "₹799",
-    "mrp": "₹1399",
-    "discount": "",
-    "platform": "amazon",
-    "original_link": "https://www.amazon.in/dp/B0F6NKMVGZ?tag=buysasta0103-21",
-    "timestamp": "2025-12-24T14:41:57.483337Z"
-  },
-  {
-    "id": "a9fd0e910836",
-    "title": "U.S. Polo Assn. Kids Cotton Front Twist Pure Cotton Top",
-    "image": "http://assets.myntassets.com/assets/images/2025/APRIL/21/b4YOWSUo_5acabc8faf7d42a38cbd9558d5f5f187.jpg",
-    "price": "₹348",
-    "mrp": "₹1099",
-    "discount": "",
-    "platform": "myntra",
-    "original_link": "https://www.myntra.com/product/p/p/30462436/buy",
-    "timestamp": "2025-12-24T14:41:58.408960Z"
-  },
-  {
-    "id": "4eb23fb67855",
-    "title": "LUXOR Pastel Highlighter Pack Of 5 With XO Pen (Set of 5, Multicolor)",
-    "image": "https://rukminim1.flixcart.com/image/400/400/xif0q/marker-highlighter/u/d/y/pastel-highlighter-pack-of-5-with-xo-pen-pastel-highlighter-original-imagtansz4n4ygy4.jpeg?q=90",
-    "price": "₹86",
-    "mrp": "₹250",
-    "discount": "",
-    "platform": "flipkart",
-    "original_link": "https://www.flipkart.com/p/p/item?pid=MAHGTBGM3RM9JAPD",
-    "timestamp": "2025-12-24T14:41:59.317446Z"
   }
 ]
